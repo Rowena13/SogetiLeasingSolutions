@@ -1,11 +1,9 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import 'cypress-mochawesome-reporter/register';
 
-Given("I am on the Sogeti Leasing Solutions site", () => {
-    cy.visit('http://testobjectv2.westeurope.cloudapp.azure.com/')
-});
 
-When("I log in on the Sogeti Leasing Solutions site", () => {
+Given("I log in on the Sogeti Leasing Solutions site", () => {
+    cy.visit('http://testobjectv2.westeurope.cloudapp.azure.com/')
     cy.get('a[title="My Account"]').click()
     cy.contains('Login').click()
     cy.get('#input-email').type('ahmad.al-azizi@sogeti.com')
@@ -14,13 +12,16 @@ When("I log in on the Sogeti Leasing Solutions site", () => {
 
 });
 
-Then("I should be able to place an order for a new car", () => {
-    cy.contains('Dog').click()
-    cy.contains('Very Small Dogs').click()
-    cy.contains('Continental Toy Spaniel').click({ force: true })
+When("I go to the category {string} and subcategory {string}", (category: string, subcatgory: string) => {
+    cy.contains(category).click()
+    cy.contains(subcatgory).click()
+});
+
+
+Then("I should be able to add a {string} to the cart and checkout", (product: string) => {
+    cy.contains(product).click({ force: true })
     cy.get('#button-cart').click()
     cy.get('[class="alert alert-success alert-dismissible"]').should('be.visible')
-
     cy.get('#cart').click()
     cy.contains('View Cart').click()
     cy.contains('Checkout').click()

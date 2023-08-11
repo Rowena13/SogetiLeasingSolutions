@@ -5,5 +5,5 @@ Feature: Compare cars
         Then comparing items '<carIdA>' and '<carIdB>' should be faster than '<callbackTimeLimit>' seconds
         Examples:
             | carIdA | carIdB | callbackTimeLimit |
-            | 65        | 66        | 2                 |
-            | 70        | 75        | 1                 |
+            | 65     | 66     | 2                 |
+            | 70     | 75     | 1                 |
