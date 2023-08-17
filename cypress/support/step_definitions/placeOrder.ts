@@ -26,7 +26,7 @@ Then("I should be able to add a {string} to the cart and checkout", (product: st
     cy.contains('View Cart').click()
     cy.contains('Checkout').click()
 
-    cy.get('#button-payment-address').should('be.visible').click()
+    cy.get('#button-payment-address').should('be.visible').trigger('click')
     cy.get('#button-shipping-address').should('be.visible').click()
     cy.get('[name="comment"]').type('Doorbell is broken, please knock when delivering')
     cy.get('#button-shipping-method').click()

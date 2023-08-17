@@ -1,10 +1,11 @@
 {
   "scripts": {
     "merge:reports": "mochawesome-merge cypress/reports/mochawesome-report/.jsons/*.json > cypress-combined-report.json",
-    "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json"
+    "create:html:report": "npm run merge:reports && marge --reportDir TestReport cypress-combined-report.json",
+    "create:report": "merge:reports && create:html:report"
   },
   "devDependencies": {
-    "cypress": "^12.17.3",
+    "cypress": "^12.17.4",
     "cypress-mochawesome-reporter": "^3.5.1",
     "mocha": "^10.2.0",
     "mocha-junit-reporter": "^2.2.1",
