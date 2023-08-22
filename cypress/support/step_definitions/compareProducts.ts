@@ -22,7 +22,7 @@ Then("comparing items {string} and {string} should be faster than {string} secon
         let ms2 = d2.getMilliseconds();
         let callbackTime = (ms2 - ms1) / 1000
         cy.log('\nrequest is done in ' + callbackTime + ' seconds')
-        expect(callbackTime).to.lessThan(parseInt(callbackTimeLimit))
+        expect(callbackTime).to.lessThan(parseFloat(callbackTimeLimit))
         cy.log('Got car:          ' + response.body.data[0].name)
         cy.log('compared to car:  ' + response.body.data[1].name)
 

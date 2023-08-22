@@ -20,7 +20,7 @@ When("I go to the category {string} and subcategory {string}", (category: string
 
 Then("I should be able to add a {string} to the cart and checkout", (product: string) => {
     cy.contains(product).click({ force: true })
-    cy.get('#button-cart').click()
+    cy.get('#button-car').click()
     cy.get('[class="alert alert-success alert-dismissible"]').should('be.visible')
     cy.get('#cart').click()
     cy.contains('View Cart').click()
