@@ -1,4 +1,4 @@
-import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor";
+import { Then, Given } from "@badeball/cypress-cucumber-preprocessor";
 import 'cypress-mochawesome-reporter/register';
 
 Given("website is working", () => {

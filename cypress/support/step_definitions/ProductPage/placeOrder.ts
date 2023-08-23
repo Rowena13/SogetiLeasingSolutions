@@ -1,15 +1,14 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 import 'cypress-mochawesome-reporter/register';
 
 
 Given("I log in on the Sogeti Leasing Solutions site", () => {
-    cy.visit('http://testobjectv2.westeurope.cloudapp.azure.com/')
+    cy.visit('/')
     cy.get('a[title="My Account"]').click()
     cy.contains('Login').click()
     cy.get('#input-email').type('ahmad.al-azizi@sogeti.com')
     cy.get('#input-password').type('Ab1234@')
     cy.get('[type="submit"]').click()
-
 });
 
 When("I go to the category {string} and subcategory {string}", (category: string, subcatgory: string) => {

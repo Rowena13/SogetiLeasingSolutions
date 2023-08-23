@@ -1,19 +1,9 @@
 import { defineConfig } from "cypress";
-import createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild";
+import * as createBundler from "@bahmutov/cypress-esbuild-preprocessor";
 
 export default defineConfig({
-  viewportWidth: 1920,
-  viewportHeight: 1080,
-  "reporter": "cypress-mochawesome-reporter",
-  "reporterOptions": {
-    "charts": true,
-    "overwrite": true,
-    "html": false,
-    "json": true,
-    "reportDir": "cypress/reports/mochawesome-report"
-  },
   e2e: {
     specPattern: "**/*.feature",
     async setupNodeEvents(
@@ -33,5 +23,16 @@ export default defineConfig({
       // Make sure to return the config object as it might have been modified by the plugin.
       return config;
     },
+    "baseUrl": "http://testobjectv2.westeurope.cloudapp.azure.com/"
+  },
+  viewportWidth: 1920,
+  viewportHeight: 1080,
+  "reporter": "cypress-mochawesome-reporter",
+  "reporterOptions": {
+    "charts": true,
+    "overwrite": true,
+    "html": false,
+    "json": true,
+    "reportDir": "cypress/reports/mochawesome-report"
   },
 });
